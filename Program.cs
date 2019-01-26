@@ -70,7 +70,7 @@ namespace Parking_System_UI
                                     }
                                     else if (Temp_Command.Command.ToLower() == "Status_Ruangan_Parkir".ToLower())
                                     {
-                                        Console.WriteLine(await Command.Status_Ruangan_Parkir());
+                                        Console.WriteLine(await Command.Status_Ruangan_Parkir(args));
                                         Status_Find_Command = true;
                                         break;                                        
                                     }

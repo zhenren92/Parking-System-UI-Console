@@ -12,7 +12,7 @@ namespace Parking_System_UI.Interface
         Task<object> Kendaraan_Keluar(int No_Slot, string[] args);
         Task<object> Kendaraan_Parkir_Berdasarkan_No_Polisi(string No_Polisi, string[] args);
         Task<object> Kendaraan_Parkir_Berdasarkan_Warna(string Warna, string[] args);
-        Task<object> Status_Ruangan_Parkir();
+        Task<object> Status_Ruangan_Parkir(string[] args);
         Task<object> Status_Ruangan_Parkir(int Baris_Ruangan, string[] args);
         Task<object> Status_Ruangan_Parkir(int Baris_Ruangan, int Nomor_Slot, string[] args);
         Task<object> Tampil_Aktifitas_Kendaraan_Keluar();

@@ -203,13 +203,58 @@ namespace Parking_System_UI.Models.Command
             return obj;
         }
 
-        public async Task<object> Status_Ruangan_Parkir()
+        public async Task<object> Status_Ruangan_Parkir(string[] args)
         {
             object obj = new object();
 
             try
             {
-                obj = await Get_Data("Status_Ruangan_Parkir");
+                if (args.Length > 1)
+                {
+                    obj = await Filter_Parameter("Status_Ruangan_Parkir", args);
+                    
+                    if (obj.GetType() == typeof(Dictionary<string, string>))
+                    {
+                        Dictionary<string, string> Temp_args = obj as Dictionary<string, string>;
+                        int Baris_Ruangan = 0;
+                        int No_Slot = 0;
+
+                        if (Temp_args.Count < 2)
+                        {
+                            foreach (var item in Temp_args)
+                            {
+                                if ((item.Key.ToLower() == "--Baris_Ruangan".ToLower()) || (item.Key.ToLower() == "--BR".ToLower()))
+                                {
+                                    Baris_Ruangan = (int) int.Parse((item.Value != null) ? item.Value : "0");
+                                    break;
+                                }
+                            }
+
+                            obj = await Status_Ruangan_Parkir(Baris_Ruangan , args);
+                        }
+                        else
+                        {
+                            foreach (var item in Temp_args)
+                            {
+                                if ((item.Key.ToLower() == "--Baris_Ruangan".ToLower()) || (item.Key.ToLower() == "--BR".ToLower()))
+                                {
+                                    Baris_Ruangan = (int) int.Parse((item.Value != null) ? item.Value : "0");                                
+                                }
+                                else if ((item.Key.ToLower() == "--Baris_Ruangan".ToLower()) || (item.Key.ToLower() == "--BR".ToLower()))
+                                {
+                                    No_Slot = (int) int.Parse((item.Value != null) ? item.Value : "0");
+                                }
+                            }
+
+                            obj = await Status_Ruangan_Parkir(Baris_Ruangan, No_Slot , args);
+                            return obj;
+                        }
+                    }
+                }
+                else
+                {
+                    obj = await Get_Data("Status_Ruangan_Parkir");
+                }
             }
             catch (Exception ex)
             {
@@ -388,7 +433,7 @@ namespace Parking_System_UI.Models.Command
             Command_Parameter Slot_Ruang_Parkir = new Command_Parameter() 
             {
                 Parameter_Alias = "--Slot",
-                Parameter_Code = "--s",
+                Parameter_Code = "--S",
                 Keterangan_Parameter = "Slot Ruangan Parkir",
                 Status_Optional = false
             };
@@ -412,7 +457,7 @@ namespace Parking_System_UI.Models.Command
             Command_Parameter Help_Command_Parameter = new Command_Parameter() 
             {
                 Parameter_Alias = "--Help",
-                Parameter_Code = "--h",
+                Parameter_Code = "--H",
                 Keterangan_Parameter = "Help",
                 Status_Optional = true
             };
@@ -511,7 +556,13 @@ namespace Parking_System_UI.Models.Command
                                             }
                                         } ,
                                         {
-                                            Slot_Ruang_Parkir
+                                            new Command_Parameter 
+                                            {
+                                                Parameter_Alias = Slot_Ruang_Parkir.Parameter_Alias ,
+                                                Parameter_Code = Slot_Ruang_Parkir.Parameter_Code,
+                                                Keterangan_Parameter = Slot_Ruang_Parkir.Keterangan_Parameter,
+                                                Status_Optional = true
+                                            }
                                         } ,
                                         {
                                             Help_Command_Parameter

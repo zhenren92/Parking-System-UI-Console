@@ -8,3 +8,4 @@ C:\Project Khairul\Parking System\Parking UI Console\Parking-System-UI\obj\Debug
 C:\Project Khairul\Parking System\Parking UI Console\Parking-System-UI\obj\Debug\netcoreapp2.0\Parking-System-UI.AssemblyInfo.cs
 C:\Project Khairul\Parking System\Parking UI Console\Parking-System-UI\obj\Debug\netcoreapp2.0\Parking-System-UI.dll
 C:\Project Khairul\Parking System\Parking UI Console\Parking-System-UI\obj\Debug\netcoreapp2.0\Parking-System-UI.pdb
+C:\Project Khairul\Parking System\Parking UI Console\Parking-System-UI\obj\Debug\netcoreapp2.0\Parking-System-UI.csprojResolveAssemblyReference.cache
