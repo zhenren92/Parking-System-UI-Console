@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Project Khairul\\Parking System\\Parking UI Console\\Parking-System-UI\\Parking-System-UI.csproj",
+  "TargetFramework": "netcoreapp2.0",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
