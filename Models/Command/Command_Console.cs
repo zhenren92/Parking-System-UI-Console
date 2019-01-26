@@ -212,7 +212,7 @@ namespace Parking_System_UI.Models.Command
                 if (args.Length > 1)
                 {
                     obj = await Filter_Parameter("Status_Ruangan_Parkir", args);
-                    
+
                     if (obj.GetType() == typeof(Dictionary<string, string>))
                     {
                         Dictionary<string, string> Temp_args = obj as Dictionary<string, string>;
@@ -560,7 +560,7 @@ namespace Parking_System_UI.Models.Command
                                             {
                                                 Parameter_Alias = Slot_Ruang_Parkir.Parameter_Alias ,
                                                 Parameter_Code = Slot_Ruang_Parkir.Parameter_Code,
-                                                Keterangan_Parameter = Slot_Ruang_Parkir.Keterangan_Parameter,
+                                                Keterangan_Parameter = "Optional : " + Slot_Ruang_Parkir.Keterangan_Parameter,
                                                 Status_Optional = true
                                             }
                                         } ,
@@ -575,11 +575,6 @@ namespace Parking_System_UI.Models.Command
                                     Command = "Tampil_Aktifitas_Kendaraan_Masuk" ,
                                     Keterangan_Command = "Tampil aktifitas kendaraan masuk" ,
                                     Daftar_Command_Parameter = new List<Command_Parameter>()
-                                    {
-                                        {
-                                            Help_Command_Parameter
-                                        }                                        
-                                    } 
                                 });
 
             Daftar_Command.Add(new Command_Console 
@@ -587,11 +582,6 @@ namespace Parking_System_UI.Models.Command
                                     Command = "Tampil_Aktifitas_Kendaraan_Keluar" ,
                                     Keterangan_Command = "Tampil aktifitas kendaraan keluar" ,
                                     Daftar_Command_Parameter = new List<Command_Parameter>()
-                                    {
-                                        {
-                                            Help_Command_Parameter
-                                        }                                        
-                                    } 
                                 });
 
             Daftar_Command.Add(new Command_Console 
@@ -599,11 +589,6 @@ namespace Parking_System_UI.Models.Command
                                     Command = "Tampil_Aktifitas_Kendaraan_Masuk_Keluar" ,
                                     Keterangan_Command = "Tampil aktifitas kendaraan masuk dan keluar" ,
                                     Daftar_Command_Parameter = new List<Command_Parameter>()
-                                    {
-                                        {
-                                            Help_Command_Parameter
-                                        }                                        
-                                    } 
                                 });
 
             Daftar_Command.Add(new Command_Console 
@@ -660,7 +645,7 @@ namespace Parking_System_UI.Models.Command
                         {
                             foreach (var value in item.Daftar_Command_Parameter)
                             {
-                                obj = obj + "\t " + value.Parameter_Alias + " , " + value.Parameter_Code + "\t \t ( " + value.Keterangan_Parameter + ") \n";
+                                obj = obj + "\t " + value.Parameter_Alias + " , " + value.Parameter_Code + "\t \t ( " + value.Keterangan_Parameter + " ) \n";
                             }
                         }
 
